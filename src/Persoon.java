@@ -48,9 +48,11 @@ public class Persoon {
 
     public String toString() {
         String txt = "";
+        int Count = this.mijnGames.size();
         for (Game game : this.mijnGames) {
-            if (this.mijnGames.size() > 1) {
-                txt += game.toString() + "\n";
+            if (Count > 1) {
+                 txt += game.toString() + "\n";
+                 Count = Count - 1;
             } else {
                 txt += game.toString();
             }}
