@@ -25,7 +25,8 @@ public class Persoon {
                 mijnGames.add(g);
                 budget = budget - g.huidigeWaarde();
                 return true;
-            }}
+            }
+        }
 
         return false;
     }
@@ -36,29 +37,41 @@ public class Persoon {
     public boolean verkoop(Game g, Persoon koper) {
         if (!mijnGames.contains(g)) {
             return false;
-        }else{
-                if (koper.koop(g)) {
-                    mijnGames.remove(g);
-                    budget = budget + g.huidigeWaarde();
-                    return true;
+        } else {
+            if (koper.koop(g)) {
+                mijnGames.remove(g);
+                budget = budget + g.huidigeWaarde();
+                return true;
 
-                }else{
-                    return false;
-                }}}
+            } else {
+                return false;
+            }
+        }
+    }
 
     public String toString() {
         String txt = "";
         int Count = this.mijnGames.size();
         for (Game game : this.mijnGames) {
             if (Count > 1) {
-                 txt += game.toString() + "\n";
-                 Count = Count - 1;
+                txt += game.toString() + "\n";
+                Count = Count - 1;
             } else {
                 txt += game.toString();
-            }}
-            if (mijnGames.size() == 0) {
-                return (naam + " heeft een budget van €" + String.format("%.2f", budget) + " en bezit de volgende games:");
-            } else
-                return (naam + " heeft een budget van €" + String.format("%.2f", budget) + " en bezit de volgende games:\n" + txt);
+            }
         }
+        if (mijnGames.size() == 0) {
+            return (naam + " heeft een budget van €" + String.format("%.2f", budget) + " en bezit de volgende games:");
+        } else
+            return (naam + " heeft een budget van €" + String.format("%.2f", budget) + " en bezit de volgende games:\n" + txt);
     }
+
+    public Game zoekGameOpNaam(String input) {
+        for (Game g : this.mijnGames) {
+            if (g.getNaam().equals(input)) {
+                return (g);
+            }
+        }
+        return null;
+    }
+}
