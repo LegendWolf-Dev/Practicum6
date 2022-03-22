@@ -45,6 +45,17 @@ public class Persoon {
                 }else{
                     return false;
                 }}}
+    // Toevoeging Leon voor Practicum 6B
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> arrayOfGames){
+        ArrayList<Game> resultingGames = new ArrayList<>();
+        for (int i = 0;  i < arrayOfGames.size(); i++){
+            if (!mijnGames.contains(arrayOfGames.get(i))){
+                resultingGames.add(arrayOfGames.get(i));
+            }
+        }
+        return resultingGames;
+    }
+    //Einde toevoeging Leon
 
     public String toString() {
         String txt = "";
